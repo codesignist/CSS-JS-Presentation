@@ -184,6 +184,64 @@
             <iframe src="assets/css3.html" class="iframe"></iframe>
           </div>
         </section>
+        <section>
+          <h2>CSS - Flex Gallery</h2>
+          <div class="flex">
+            <pre class="noscroll" data-id="code-animation">
+              <code class="noscroll" data-trim data-noescape data-line-numbers="|5-13|10-12">
+                .gallery {
+                  display: flex;
+                  width: 100%;
+                  height: 60vh;
+                  .item {
+                    flex: auto;
+                    background-position: center;
+                    background-size: cover;
+                    transition: all 0.3s;
+                    &:hover {
+                      flex: 5;
+                    }
+                  }
+                }
+              </code>
+            </pre>
+            <iframe src="assets/css4-flex.html" class="iframe"></iframe>
+          </div>
+        </section>
+        <section>
+          <h2>CSS - Mac Dock Menu</h2>
+          <div class="flex">
+            <pre data-id="code-animation">
+              <code data-trim data-noescape data-line-numbers="|1-4|6-10|12-17|19-24">
+                .dock ul li {
+                  transform-origin: bottom;
+                  transition: all .25s ease-in-out;
+                }
+                
+                .dock ul li:hover {
+                  margin: 0 8px;
+                  transform: scale(2.5);
+                  z-index: 999;
+                }
+                
+                .dock ul li:hover +li,
+                .dock ul li:has(+ li:hover) {
+                  margin: 0 4px;
+                  transform: scale(1.7);
+                  z-index: 99;
+                }
+                
+                .dock ul li:hover + li + li,
+                .dock ul li:has(+ li + li:hover) {
+                  margin: 0 2px;
+                  transform: scale(1.4);
+                  z-index: 9;
+                }
+              </code>
+            </pre>
+            <iframe src="assets/css5-dock.html" class="iframe"></iframe>
+          </div>
+        </section>
       </div>
     </div>
 

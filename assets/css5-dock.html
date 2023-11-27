@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      body {
+        overflow: hidden;
+        font: 400 normal 16px/20px "Open Sans", "HelveticaNeue-Light",
+          "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial",
+          "Lucida Grande", sans-serif;
+        background-image: url("https://512pixels.net/wp-content/uploads/2021/06/12-Light-thumbnail.jpg");
+        background-size: 200%;
+        background-position-y: top;
+      }
+      .dock {
+        position: absolute;
+        bottom: 0;
+        z-index: 9999;
+        width: 100%;
+        text-align: center;
+      }
+      .dock ul {
+        position: relative;
+        display: inline-block;
+        padding: 0 5px;
+        margin: 0;
+        background: url(../img/dock-bg.png) repeat-x bottom;
+      }
+      .dock li {
+        display: inline-block;
+        position: relative;
+        margin: 0 0 15px 0;
+        -webkit-box-reflect: below -12px -webkit-gradient(
+            linear,
+            left top,
+            left bottom,
+            from(transparent),
+            color-stop(91%, rgba(255, 255, 255, 0.1)),
+            color-stop(91.01%, transparent),
+            to(transparent)
+          );
+      }
+      .dock a {
+        display: block;
+        cursor: default;
+        outline: none;
+      }
+      .dock em {
+        position: absolute;
+        top: -34px;
+        left: 50%;
+        display: none;
+        width: 150px;
+        margin-left: -75px;
+        text-align: center;
+      }
+      .dock em:after {
+        content: " ";
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        margin-left: -3px;
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 3px solid rgba(0, 0, 0, 0.6);
+        border-bottom: none;
+      }
+      .dock em span {
+        display: inline-block;
+        padding: 2px 3px;
+        background: rgba(0, 0, 0, 0.6);
+        font-style: normal;
+        font-size: 6px;
+        color: #fff;
+        text-shadow: 0 1px 1px #000;
+        border-radius: 5px;
+      }
+      .dock li:hover em {
+        display: block;
+      }
+      .dock img {
+        width: 24px;
+        height: auto;
+        border: none;
+      }
+      .dock li a .fresh {
+        content: " ";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        width: 8px;
+        height: 6px;
+        opacity: 1;
+        background-color: rgba(255, 255, 255, 0.8);
+        margin-left: -2px;
+        border-radius: 100%;
+        box-shadow: inset 0 1px 3px rgba(75, 255, 255, 0.4),
+          0 0 4px rgba(75, 255, 255, 0.5), 0 -1px 7px rgb(75, 255, 255);
+        -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left
+              bottom, from(transparent), color-stop(91%, rgba(255, 255, 255, 0.5)), color-stop(91.01%, transparent), to(transparent));
+      }
+
+      .dock ul li {
+        transform-origin: bottom;
+        transition: all 0.25s ease-in-out;
+      }
+
+      .dock ul li:hover {
+        margin: 0 8px;
+        transform: scale(2.5);
+        z-index: 999;
+      }
+
+      .dock ul li:hover + li,
+      .dock ul li:has(+ li:hover) {
+        margin: 0 4px;
+        transform: scale(1.7);
+        z-index: 99;
+      }
+
+      .dock ul li:hover + li + li,
+      .dock ul li:has(+ li + li:hover) {
+        margin: 0 2px;
+        transform: scale(1.4);
+        z-index: 9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dock">
+      <ul>
+        <li id="finderr">
+          <a href="#warning" data-rel="showOp">
+            <em><span>Finder</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/FinderIcon.png"
+              alt="Finder"
+            />
+          </a>
+        </li>
+        <li id="expose">
+          <a href="#warning" data-rel="showOp">
+            <em><span>Mission Control</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/expose.png"
+              alt="Mission Control"
+            />
+          </a>
+        </li>
+        <li id="appStore">
+          <a href="#warning" data-rel="showOp">
+            <em><span>App Store</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/appstore.png"
+              alt="App Store"
+            />
+          </a>
+        </li>
+        <li id="safari">
+          <a href="#warning" data-rel="showOp">
+            <em><span>Safari</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/Safari.png"
+              alt="Safari"
+            />
+          </a>
+        </li>
+        <li id="iChat">
+          <a href="#warning" data-rel="showOp">
+            <em><span>iChat</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/ichat.png"
+              alt="iChat"
+            />
+          </a>
+        </li>
+        <li id="facetime">
+          <a href="#warning" data-rel="showOp">
+            <em><span>FaceTime</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/facetime.png"
+              alt="Facetime"
+            />
+          </a>
+        </li>
+        <li id="addressBook">
+          <a href="#warning" data-rel="showOp">
+            <em><span>Address Book</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/address.png"
+              alt="Address Book"
+            />
+          </a>
+        </li>
+        <li id="preview">
+          <a href="#warning" data-rel="showOp">
+            <em><span>Preview</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/preview.png"
+              alt="Preview"
+            />
+          </a>
+        </li>
+        <li id="iTunes">
+          <a href="#warning" data-rel="showOp">
+            <em><span>iTunes</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/iTunes.png"
+              alt="iTunes"
+            />
+          </a>
+        </li>
+        <li id="trash">
+          <a href="#trash" data-rel="showOpTrash">
+            <em><span>Trash</span></em>
+            <img
+              src="http://www.alessioatzeni.com/mac-osx-lion-css3/res/img/trash.png"
+              alt="Trash"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
