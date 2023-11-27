@@ -1,40 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>CSS & JS Animations</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <style type="text/css">
+      .flex {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+      }
+      .flex pre {
+        margin: 0;
+      }
+      .flex .iframe {
+        max-height: 100%;
+        height: 100%;
+        padding: 5px;
+      }
+      .iframe {
+        width: 100%;
+        background-color: white;
+      }
+      .noscroll {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>CSS & JS Animations</h1>
+          Yunus Eş
+        </section>
+        <section>
+          <h4>Table of contents</h4>
+          <ul>
+            <li>Animation</li>
+            <li>CSS</li>
+            <ul>
+              <li>Transitions</li>
+              <li>Animations</li>
+            </ul>
+            <li>JavaScript</li>
+            <ul>
+              <li>GSAP</li>
+              <li>React Spring</li>
+            </ul>
+            <li>Surprise Ending</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Animation</h2>
+          <img src="assets/Animexample.gif" width="30%" />
+        </section>
+        <section>
+          <h2>Frames</h2>
+          <img src="assets/Animexample3edit.png" />
+        </section>
+        <section>
+          <h3>Makoto Shinkai</h3>
+        </section>
+        <section>
+          <video
+            style="transform: rotate(270deg) translateX(40%)"
+            data-autoplay
+            loop
+            src="assets/makato_shinkai.mp4"
+          ></video>
+        </section>
+        <section>
+          <h2>HTML</h2>
+          <div class="flex">
+            <pre>
+              <code data-trim data-noescape data-line-numbers="|2|3|4">
+                &lt;body&gt;
+                  &lt;h1&gt;My First Heading&lt;/h1&gt;
+                  &lt;p&gt;My first paragraph.&lt;/p&gt;
+                  &lt;button&gt;Click Me!&lt;/button&gt;
+                &lt;/body&gt;
+              </code>
+            </pre>
+            <iframe src="assets/html.html" class="iframe"></iframe>
+          </div>
+        </section>
+        <section>
+          <h2>CSS</h2>
+          <div class="flex">
+            <pre>
+              <code data-trim data-noescape data-line-numbers="|1-3|5-8|6|7|10-13">
+                body {
+                  background-color: lightblue;
+                }
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+                h1 {
+                  color: white;
+                  text-align: center;
+                }
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+                p {
+                  font-family: verdana;
+                  font-size: 20px;
+                }
+              </code>
+            </pre>
+            <iframe src="assets/css.html" class="iframe"></iframe>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h2>CSS - Hover</h2>
+          <div class="flex">
+            <pre class="noscroll" data-id="code-animation">
+              <code class="noscroll" data-trim data-noescape data-line-numbers="|1-8|9-11|">
+                a {
+                  padding: 16px;
+                  display: block;
+                  color: white;
+                  background-color: tomato;
+                  border-radius: 8px;
+                  cursor: pointer;
+                }
+                a:hover {
+                  padding: 24px;
+                }
+              </code>
+            </pre>
+            <iframe src="assets/css1.html" class="iframe"></iframe>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h2>CSS - Transition</h2>
+          <div class="flex">
+            <pre class="noscroll" data-id="code-animation">
+              <code class="noscroll" data-trim data-noescape data-line-numbers="8">
+                a {
+                  padding: 16px;
+                  display: block;
+                  color: white;
+                  background-color: tomato;
+                  border-radius: 8px;
+                  cursor: pointer;
+                  transition: padding .3s;
+                }
+                a:hover {
+                  padding: 24px;
+                }
+              </code>
+            </pre>
+            <iframe src="assets/css2.html" class="iframe"></iframe>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h2>CSS - Transition All</h2>
+          <div class="flex">
+            <pre class="noscroll" data-id="code-animation">
+              <code class="noscroll" data-trim data-noescape data-line-numbers="8,12,13|">
+                a {
+                  padding: 16px;
+                  display: block;
+                  color: white;
+                  background-color: tomato;
+                  border-radius: 8px;
+                  cursor: pointer;
+                  transition: all 0.3s;
+                }
+                a:hover {
+                  padding: 24px;
+                  border-radius: 0;
+                  background-color: olive;
+                }
+              </code>
+            </pre>
+            <iframe src="assets/css3.html" class="iframe"></iframe>
+          </div>
+        </section>
+      </div>
+    </div>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
